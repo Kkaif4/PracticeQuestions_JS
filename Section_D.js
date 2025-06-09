@@ -52,15 +52,14 @@ const uniqueProject = allProjects.filter((project) => {
 });
 
 //? E: Find the highest-paid employee in each department
-// * Skipped
-const mostPaidByDept = employees.reduce((acc, employee) => {
-  const { department, salary } = employee;
-  if (!acc[department] || salary > acc[department].salary) {
-    acc[department] = employee;
+const mostPaid = employees.reduce((acc, emp) => {
+  const { department, salary } = emp;
+  if (!acc[department] || salary > acc[department]) {
+    acc[department] = salary;
   }
   return acc;
 }, {});
-// console.log(mostPaidByDept);
+// console.log(mostPaid);
 
 // ! Question 8: Data Cleanup and Validation
 const rawData = [
