@@ -33,16 +33,16 @@ const posts = [
 
 //? A: Find the most popular post (highest likes)
 let highest = 0;
-const populerPost = posts.reduce((populer, post) => {
+const popularPost = posts.reduce((popular, post) => {
   if (post.likes > highest) {
     highest = post.likes;
     return post;
   }
-  return populer;
+  return popular;
 });
-// console.log(populerPost);
+// console.log(popularPost);
 
-//? B: Get all unique tags used accross all post
+//? B: Get all unique tags used across all post
 
 const unique = [...new Set(posts.flatMap((post) => post.tags))];
 // console.log(unique);
@@ -212,8 +212,15 @@ const total = temperatures.reduce((sum, day) => sum + day.temp, 0);
 const avgtemp = total / temperatures.length;
 console.log(avgtemp);
 
-//? C: Find days where temperature increased from the previous day-
-// * Skipped this question, couldnt find the solution
+//? C: Find days where temperature increased from the previous day
+let tempIncrease = [];
+
+for (let i = 1; i < temperatures.length; i++) {
+  if (temperatures[i].temp > temperatures[i - 1].temp) {
+    tempIncrease.push(temperatures[i]);
+  }
+}
+console.log(tempIncrease);
 
 //?  D: Identify temperature anomalies (more than 5 degrees different from average)
 const anomalies = temperatures.filter(

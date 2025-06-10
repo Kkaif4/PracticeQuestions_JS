@@ -44,7 +44,7 @@ for (dept in deptSalary) {
   avgSalary[dept] = deptSalary[dept].totalSalary / deptSalary[dept].count;
 }
 
-//? D: get a list of unique projects accross all employees
+//? D: get a list of unique projects across all employees
 // * solved with the help
 const allProjects = employees.map((emp) => emp.projects).flat();
 const uniqueProject = allProjects.filter((project) => {
@@ -55,7 +55,7 @@ const uniqueProject = allProjects.filter((project) => {
 const mostPaid = employees.reduce((acc, emp) => {
   const { department, salary } = emp;
   if (!acc[department] || salary > acc[department]) {
-    acc[department] = salary;
+    acc[department] = emp;
   }
   return acc;
 }, {});
@@ -86,7 +86,7 @@ const clean = rawData.filter(
 const whiteSpaceRemove = clean.map((word) => word.trimStart().trimEnd());
 // console.log(whiteSpaceRemove);
 
-//? C: separate emain addresses
+//? C: separate email addresses
 const emails = whiteSpaceRemove.filter((word) => word.includes('@'));
 // console.log(emails);
 
@@ -97,13 +97,11 @@ const sorterArray = whiteSpaceRemove
 // console.log(sorterArray);
 
 //? E: Validate that all emails contain '@' and '.'
-const emialValidation = emails.every((email) => {
+const emailValidation = emails.every((email) => {
   return email.includes('@') && email.includes('.');
 });
-emialValidation
-  ? console.log('all emails are valid')
-  : console.log('some of email are not');
-// console.log(emialValidation);
+emailValidation ? 'all emails are valid' : 'some of email are not';
+// console.log(emailValidation);
 
 // ! Question 9: Nested Array Operations
 const orders = [
