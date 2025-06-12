@@ -13,21 +13,23 @@ function titleCase(str, exception) {
     const updatedWords = words.map((word) => {
       if (word === words[0]) {
         word = word[0].toUpperCase() + word.slice(1);
+        console.log('returned: ', word);
         return word;
       }
-      const update = exp.map((expWord) => {
+      return exp.map((expWord) => {
         if (word !== expWord && word !== words[0]) {
+          console.log('returned: ', word[0].toUpperCase() + word.slice(1));
           return word[0].toUpperCase() + word.slice(1);
         } else {
+          console.log('returned: ', expWord);
           return word;
         }
       });
-      return update;
     });
-    console.log(updatedWords);
+    console.log('returned: ', updatedWords);
     return updatedWords.join(' ');
   }
 }
-let str = 'kraken is daBlue';
-let exp = 'kraken is ';
-console.log(titleCase(str, exp));
+let str = 'kraken and me and he is dablue';
+let exp = 'is ';
+console.log(titleCase(str, 'Kraken'));
