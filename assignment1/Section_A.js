@@ -8,7 +8,7 @@ const students = [
 ];
 //? A: Create a new array containing only the student names
 const names = students.map((student) => student.name);
-console.log(names);
+// console.log(names);
 
 //? B: Create a new array with grade percentages converted to letter grades
 const letterGrads = students.map((student) => {
@@ -22,7 +22,7 @@ const letterGrads = students.map((student) => {
     return 'F';
   }
 });
-console.log(letterGrads);
+// console.log(letterGrads);
 
 //? C: Add a new status property to each student object "Excellent" for 90+, "Good" for 80-89, "Average" for 70-79, "Needs Improvement" for <70)
 const updatedStudents = students.map((student) => {
