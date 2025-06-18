@@ -27,6 +27,7 @@ export const getPostById = (req, res, next) => {
 
 //? create post
 export const createPost = (req, res, next) => {
+  console.log(req.body);
   try {
     const { name } = req.body;
     const id = posts.length + 1;

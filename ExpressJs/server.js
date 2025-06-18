@@ -16,25 +16,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(express.json());
 
-
 app.use(express.urlencoded({ extended: true }));
 
 app.use(logger);
 
-app.get('/', (req, res) => {
-  res.send('index.html');
-});
-
+// app.get('/', (req, res) => {
+//   res.send('index.html');
+// });
 
 app.use('/posts', posts);
-
 
 app.use((req, res, next) => {
   const error = new Error('Page Not Found');
   error.status = 404;
   next(error);
 });
-
 
 app.use(getError);
 app.listen(port, () => {
